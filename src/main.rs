@@ -1,12 +1,13 @@
 fn median(a: Vec<f32>) -> Option<f32> {
-    a.sort_by(|a, b| a.partial_cmp(b).unwrap());
-    let items: usize = a.len();
+    
+    let mut v = a.clone();
+    v.sort_by(|a, b| a.partial_cmp(b).unwrap());
+    let items: usize = v.len();
 
     if (items % 2) == 0 {
         return Some(1.0);
-    } else {
-        return Some(1.0);
     }
+    Some(2.0)
 }
 
 fn main() {
