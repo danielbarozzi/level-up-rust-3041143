@@ -1,9 +1,7 @@
-fn unique(a: Iterable<T>) -> Vec<T> {
- a.
-
-    a.iter().for_each(|n| {});
-
-    vec![]
+fn unique(mut a: Vec<i32>) -> Vec<i32> {
+    a.sort();
+    a.dedup();
+    a
 }
 
 // advanced 1: use generic types
