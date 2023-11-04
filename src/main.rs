@@ -1,8 +1,9 @@
-fn unique(a: Vec<i32>) -> Vec<i32> {
-    let upper:i32 = a.len() as i32 ;
-    for n in 0..a.len() as i32{
+fn unique(a: Iterable<T>) -> Vec<T> {
+ a.
 
-    }
+    a.iter().for_each(|n| {});
+
+    vec![]
 }
 
 // advanced 1: use generic types
