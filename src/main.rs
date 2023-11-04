@@ -1,16 +1,16 @@
 fn median(a: Vec<f32>) -> Option<f32> {
-    let mut v = a.clone();
-    v.sort_by(|a, b| a.partial_cmp(b).unwrap());
-    let items: usize = v.len();
-
-    if items == 0 {
+    if a.is_empty() {
         return None;
     }
 
-    if (items % 2) == 0 {
-        return Some(((v[items / 2 - 1]) + (v[items / 2])) / 2.0);
+    let mut v = a.clone();
+    v.sort_by(|a, b| a.partial_cmp(b).unwrap());
+
+    if (v.len() % 2) == 0 {
+        return Some(((v[v.len() / 2 - 1]) + (v[v.len() / 2])) / 2.0);
     }
-    Some(v[items / 2])
+    
+    Some(v[v.len() / 2])
 }
 
 fn main() {
