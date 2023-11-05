@@ -1,5 +1,5 @@
 fn unique<T: Ord>(mut a: Vec<T>) -> Vec<T> {
-    a.sort_by(compare: |x: &T, y: &T| x.cmp(y));
+    a.sort();
     a.dedup();
     a
 }
@@ -20,7 +20,7 @@ fn empty_list() {
 
 #[test]
 fn sorted_list() {
-    let input = vec![1, 4, 5];
+    let input: Vec<i32> = vec![1, 4, 5];
     let mut expected_output = vec![1, 4, 5];
     let mut actual_output = unique(input);
     expected_output.sort_unstable();
@@ -30,7 +30,7 @@ fn sorted_list() {
 
 #[test]
 fn unsorted_list() {
-    let input = vec![1, 5, 2];
+    let input: Vec<i32> = vec![1, 5, 2];
     let mut expected_output = vec![1, 2, 5];
     let mut actual_output = unique(input);
     expected_output.sort_unstable();
@@ -40,7 +40,7 @@ fn unsorted_list() {
 
 #[test]
 fn unsorted_list_with_duplicates() {
-    let input = vec![1, 5, 2, 2, 1];
+    let input: Vec<i32> = vec![1, 5, 2, 2, 1];
     let mut expected_output = vec![1, 2, 5];
     let mut actual_output = unique(input);
     expected_output.sort_unstable();
@@ -50,7 +50,7 @@ fn unsorted_list_with_duplicates() {
 
 #[test]
 fn sorted_list_with_duplicates() {
-    let mut input = vec![1, 5, 2, 2, 1];
+    let mut input: Vec<i32> = vec![1, 5, 2, 2, 1];
     input.sort_by(|x, y| x.partial_cmp(y).unwrap());
     let mut expected_output = vec![1, 2, 5];
     let mut actual_output = unique(input);
